@@ -34,4 +34,35 @@ export default function decorate(block) {
     });
   });
 
+// Calculate maximum height among all flipcards
+let maxHeight = 0;
+cards.forEach(function(card, index) {
+  const frontHeight = calculateContentHeight(card.children[0]);
+  const backHeight = calculateContentHeight(card.children[1]);
+  const cardHeight = Math.max(frontHeight, backHeight);
+  maxHeight = Math.max(maxHeight, cardHeight);
+});
+
+// Assign the maximum height to each parent <li> element
+cards.forEach(function(card, index) {
+  card.style.height = maxHeight + 'px';
+});
 }
+
+function calculateContentHeight(element) {
+  const clone = element.cloneNode(true);
+  clone.style.visibility = 'hidden';
+  clone.style.position = 'absolute';
+  clone.style.top = '0px';
+  clone.style.padding = '0';
+  clone.style.margin = '0';
+  clone.querySelectorAll('*').forEach(child => {
+    child.style.padding = '0';
+    child.style.margin = '0';
+  });
+  document.body.appendChild(clone);
+  const height = clone.offsetHeight / 2;
+  document.body.removeChild(clone);
+  return height;
+}
+

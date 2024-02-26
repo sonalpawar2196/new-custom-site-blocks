@@ -1,26 +1,36 @@
 /* profile.css */
 
+/* Example styling for the profile container */
+.profile-container {
+  background-color: #f0f0f0;
+}
+
 /* Example styling for the profile wrapper */
 .profile-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Example styling for the profile image */
-  .profile-image {
-    margin-right: 20px; /* Adjust margin as needed */
-  }
-  
-  /* Example styling for the profile details */
-  .profile-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Example styling for the profile information */
-  .profile-details p {
-    margin: 5px 0;
-    font-size: 16px; /* Adjust font size as needed */
-    line-height: 1.5; /* Adjust line height as needed */
-  }
-  
+  display: flex;
+  align-items: center;
+}
+
+
+.profile-image{
+  width: 25%;
+  margin-right: 6%;
+}
+/* Example styling for the profile image to constrain its size */
+/* .profile-image img {
+  max-width: 100%; 
+  max-height: 100%; 
+} */
+
+/* Example styling for the profile details */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Example styling for the profile information */
+.profile-details p {
+  margin: 5px 0;
+  font-size: 16px; /* Adjust font size as needed */
+  line-height: 1.5; /* Adjust line height as needed */
+}
