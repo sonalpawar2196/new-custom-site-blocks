@@ -60,8 +60,23 @@ function calculateContentHeight(element) {
     child.style.padding = '0';
     child.style.margin = '0';
   });
-  document.body.appendChild(clone);
-  const height = clone.offsetHeight / 2;
-  document.body.removeChild(clone);
-  return height;
+  
+  // Create a Promise to track when all images have loaded
+  const imagePromises = Array.from(clone.querySelectorAll('img')).map(img => {
+    return new Promise(resolve => {
+      if (img.complete) {
+        resolve();
+      } else {
+        img.onload = resolve;
+      }
+    });
+  });
+
+  // After all images have loaded, calculate the offset height
+  return Promise.all(imagePromises).then(() => {
+    document.body.appendChild(clone);
+    const height = clone.offsetHeight / 2; // Adjust height as needed
+    document.body.removeChild(clone);
+    return height;
+  });
 }
