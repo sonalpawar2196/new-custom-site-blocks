@@ -47,6 +47,8 @@ cards.forEach(function(card, index) {
 cards.forEach(function(card, index) {
   card.style.height = maxHeight + 'px';
 });
+}
+
 function calculateContentHeight(element) {
   const clone = element.cloneNode(true);
   clone.style.visibility = 'hidden';
@@ -62,5 +64,4 @@ function calculateContentHeight(element) {
   const height = clone.offsetHeight / 2;
   document.body.removeChild(clone);
   return height;
-}
 }
