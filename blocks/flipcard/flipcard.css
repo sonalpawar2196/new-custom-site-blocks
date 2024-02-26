@@ -43,8 +43,14 @@
   z-index: 2;
 }
 
+.flipcard > ul > li .cards-card-body.front:hover{
+  opacity: 0.8;
+}
 .flipcard > ul > li .cards-card-body.back {
   transform: rotateY(180deg);
+}
+.flipcard > ul > li .cards-card-body.back:hover {
+opacity: 0.6;
 }
 .flipcard > ul > li .cards-card-body .cards{
 padding: 1rem;
